@@ -1,0 +1,4 @@
+Q	QETime(ms)	ResultSize	TM	FM	UM	KGTriples	KGSize(mb)
+full	3600000						
+onDS	3600000						
+onDF	237402.5	4	640	325.5	313.75	13331	1.98
