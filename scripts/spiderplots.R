@@ -18,7 +18,7 @@ library(fmsb)
 radar <- function(df, query) {
   df <- subset(df,
                select = c(Q, Throughput, ResultSize, NormTriples, UM, KGSize.mb.))
-  colnames(df) <- c("Configuration", "Throughput", "Result Size", "Norm Triples", "Used Memory", "KG Size")
+  colnames(df) <- c("Configuration", "Inv Throughput", "Result Size", "Norm Triples", "Used Memory", "KG Size")
   df <- data.frame(df[,-1],
                    row.names = df[,1])
   
@@ -59,7 +59,7 @@ allradar <- function(folder) {
   }
 
   new <- lapply(lst, function(x) {
-    x$Throughput <- x$ResultSize / x$QETime.ms. * 1000
+    x$Throughput <- 1 / ((x$ResultSize / x$QETime.ms.) * 1000)
     x$NormTriples <- x$KGTriples / max(x$KGTriples, na.rm = TRUE)
     return(x)
   })
